@@ -1,0 +1,38 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+    <br>
+    <a class="btn btn-primary" href="{% url 'VenderLibro' %}">Vender otro libro</a>
+    <div class="text-center">
+        <h1>MIS LIBROS</h1>
+        <h2>Estos son los libros que publicaste para vender</h2>
+    </div>
+    <br>
+    <br>
+    {% if ventas%}
+    <ul>{% for venta in ventas %}
+        <li>     
+            <p>Titulo: {{venta.titulo}}</p>
+            <p>Autor: {{venta.autor}}</p>
+            <p>Genero: {{venta.genero}}</p>
+            <p>Precio: ${{venta.precio}}</p>
+            {% if venta.imagen %}
+                <p><img src="{{venta.imagen.url}}" width="200px"></p>
+            {% endif %}
+
+            <p>
+                <a href="{% url 'Detail' venta.id %}">Ver</a>
+                <a href="{% url 'Edit' venta.id %}">Editar</a>
+                <a href="{% url 'Delete' venta.id %}">Borrar</a>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else%}
+        <h4>No publicaste ningun libro para vender</h4>
+    {% endif %}
+
+    
+{% endblock %}

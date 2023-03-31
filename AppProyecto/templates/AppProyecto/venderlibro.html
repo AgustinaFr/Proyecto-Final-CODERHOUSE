@@ -1,0 +1,27 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+    <br>
+    <div class="text-center">
+        <h1>VENDER LIBRO</h1>
+        <h2>Agrega el libro que quieras vender</h2>
+    </div>
+    <br>
+    <br>
+    
+    {% if miFormulario.errors %}
+    <p style="background-color: red;">Error en los datos. Revisar</p>
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+          
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+{% endblock %}
+

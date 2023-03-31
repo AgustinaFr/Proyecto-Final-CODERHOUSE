@@ -1,0 +1,16 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+<br>
+<br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <a href="{% url 'Register' %}">¿Todavia no te registrate? Registrate aca</a>
+{% endblock %}
+    

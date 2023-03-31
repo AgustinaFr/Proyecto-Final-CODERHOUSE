@@ -1,0 +1,64 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+<br>
+<br>
+    <h4>Titulo: <i>{{ catalogo.titulo }}</i></h4>
+    <p>Autor: <i>{{ catalogo.autor }}</i></p>
+    <p>Genero: <i>{{ catalogo.genero }}</i></p>
+    <p>Precio: $<i>{{ catalogo.precio }}</i></p>
+    <p>Vendedor: <i>{{ catalogo.vendedor }}</i></p>
+    <p>Descripcion: <i>{{ catalogo.descripcion }}</i></p>
+    {% if catalogo.imagen %}
+        <p><img src="{{catalogo.imagen.url}}" width="200px"></p>
+    {% endif %}
+   <p>
+        <a href = "{% url 'List' %}">Regresar</a>
+   </p>
+   <br>
+   <br>
+   <br>
+
+   <h6>Comentarios</h6>
+   <br>
+  
+   {% if not catalogo.comentarios.all %}
+       No existen comentarios
+   {% else %}
+       {% for comentario in catalogo.comentarios.all %}
+       <h6>{{comentario.nombre}}</h6>
+       <p><small>{{comentario.fecha}}</small></p>
+       <p>{{comentario.mensaje}}</p>
+       {% endfor %} 
+   {% endif %}
+   <br>
+   <br>
+   <p>
+      <a href = "{% url 'Comentario' catalogo.pk %}" class="btn btn-primary">AgregarComentario</a>
+   </p>
+  
+{% endblock %}
+    
+
+<!--
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not catalogo.comentarios.all %}
+        No existen comentarios
+    {% else %}
+        {% for comentario in catalogo.comentarios.all %}
+        <p><strong>{{comentario.vendedor}}</strong></p>
+        <p><small>{{comentario.fecha}}</small></p>
+        <p>{{comentario.mensaje}}</p>
+        
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' amplificador.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+-->

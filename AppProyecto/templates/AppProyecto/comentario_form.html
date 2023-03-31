@@ -1,0 +1,26 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+<br>
+<br>
+<!--<div class="container">
+    <h1>Agrega un Comentario</h1>
+</div>
+<div class="form-group">
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+</div>-->
+
+    <h1>Agrega un Comentario</h1>
+
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" >Guardar</button>
+    </form>
+
+
+{% endblock %}

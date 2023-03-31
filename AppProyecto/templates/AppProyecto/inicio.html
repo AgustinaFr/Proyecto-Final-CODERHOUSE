@@ -1,0 +1,32 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+<br>
+<br>
+<div class="text-center">
+    <h1>¡Bienvenido {{request.user.username}}!</h1>
+    <br>
+    <h4>Te damos la bienvenida a nuestra web de compra y venta de libros usados</h4>
+</div>
+<br>
+<br>
+<h6>Podes ver nuestros libros disponibles en:</h6> <a href= "{% url 'List' %}">Catalogo</a>
+<br>
+<br>
+<br>
+<h6>Podes ver los libros que publicaste en la web en:</h6> <a href= "{% url 'MisLibros' %}">MisLibros</a>
+<br>
+<br>
+<br>
+<h6>Podes publicar un nuevo libro en:</h6> <a href= "{% url 'VenderLibro' %}">VenderLibro</a>
+<br>
+<br>
+<br>
+<h6>Podes conocerme en:</h6> <a href= "{% url 'AcercaDeMi' %}">AcercaDeMi</a>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
