@@ -1,6 +1,6 @@
 # Proyecto-Final-CODERHOUSE
-Comision: 34670
-Alumna: Agustina Franco
+  Comision: 34670
+  Alumna: Agustina Franco
 
 La web esta destinada a usuarios que desean comprar libros usados o publicar libros usados para la venta.
 En la web se puede hacer:
